@@ -19,8 +19,8 @@ When scanned with nmap, the following output was seen:
 
 ```bash
 $ nmap 35.188.20.24 
-Starting Nmap 7.70 ( https://nmap.org ) at 2018-04-06 22:35 PDT                                                                        
-Nmap scan report for 24.20.188.35.bc.googleusercontent.com (35.188.20.24)                                                              
+Starting Nmap 7.70 ( https://nmap.org ) at 2018-04-06 22:35 PDT
+Nmap scan report for 24.20.188.35.bc.googleusercontent.com (35.188.20.24)
 Host is up (0.088s latency).
 Not shown: 992 closed ports
 PORT     STATE    SERVICE
@@ -48,11 +48,34 @@ the map for a reduced period of time is the following:
 ![](worldmap.png)
 
 Using the REST API, we can call the following to get the highest
-number of attackers: `/api/top_attackers/?api_key=XXXX&hours_ago=72`
+number of attackers: 
 
-We see the most number of attacks (1013) from 99.244.99.220.
+`/api/top_attackers/?api_key=XXXX&hours_ago=72`
+
+We see the most number of attacks (1013 in total) from IP Addr 99.244.99.220.
 Calling `/api/attacker_stats/99.244.99.220/?api_key=XXXX`
 we see that they have conducted port scans over most of the honeypot.
+
+To look at the data collected by snort, we look at the database on the server:
+
+```bash
+$ mongo mnemosyne
+> db.session.find({'honeypot': 'snort'})   
+```
+
+From this output, we see some common signatures of the attacks.  These are some samples:
+
+*  "ET SCAN Sipvicious User-Agent Detected (friendly-scanner)" 
+*  "ET DROP Dshield Block Listed Source group 1"
+*  "ET CINS Active Threat Intelligence Poor Reputation IP TCP group 65"
+
+We can see more such attacks in the payloads view: 
+
+![](payloads.png)
+
+Interestingly, the dashboard view showed that the SIP protocol was the most often probed:
+
+![](dashboard.png)
 
 The full output of the data collected is located in 
 [session.json](https://github.com/rcmccartney/honeypot/blob/master/session.json). 
