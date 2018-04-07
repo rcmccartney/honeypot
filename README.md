@@ -7,11 +7,10 @@ The following shows the 4 types of of honeypots deployed and the number of attac
 ![](sensors.png)
 
 More information on each:
-
-[Dionaea](https://github.com/threatstream/mhn/wiki/Dionaea-Sensor)
-[Wordpot](https://github.com/threatstream/mhn/wiki/Wordpot-Sensor)
-[Snort](https://github.com/threatstream/mhn/wiki/Snort-Sensor)
-[Conpot](https://github.com/threatstream/mhn/wiki/Conpot-Sensor)
+*  [Dionaea](https://github.com/threatstream/mhn/wiki/Dionaea-Sensor)
+*  [Wordpot](https://github.com/threatstream/mhn/wiki/Wordpot-Sensor)
+*  [Snort](https://github.com/threatstream/mhn/wiki/Snort-Sensor)
+*  [Conpot](https://github.com/threatstream/mhn/wiki/Conpot-Sensor)
 
 ### Issues encountered
 
