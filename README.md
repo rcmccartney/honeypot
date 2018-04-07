@@ -4,7 +4,7 @@
 
 The following shows the 4 types of of honeypots deployed and the number of attacks encountered for each:
 
-![](snapshots.png)
+![](sensors.png)
 
 More information on each:
 
